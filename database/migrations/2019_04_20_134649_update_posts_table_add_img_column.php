@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoriesTable extends Migration
+class UpdatePostsTableAddImgColumn extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('category')->unique();
-            $table->timestamps();
-            $table->softDeletes();
-        });
+
+            Schema::table('posts', function (Blueprint $table) {
+                $table->string('cover')->after('title');
+            });
     }
 
     /**
@@ -28,6 +26,8 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categoties');
+        Schema::table('posts', function (Blueprint $table) {
+            $table->dropColumn('cover');
+        });
     }
 }

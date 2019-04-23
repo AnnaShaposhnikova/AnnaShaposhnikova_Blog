@@ -15,8 +15,8 @@ class UpdateTableImpressionsAddForeignkey extends Migration
     {
         Schema::table('impressions', function (Blueprint $table) {
 
-            $table->foreign('user_id')->referenses('id')->on('users');
-            $table->foreign('post_id')->referenses('id')->on('posts');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('post_id')->references('id')->on('posts');
          });
 }
 

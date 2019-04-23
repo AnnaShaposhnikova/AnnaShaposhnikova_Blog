@@ -12,6 +12,8 @@
 */
 
 Route::get('/', 'HomeController@home')->name('home');
+Route::get('/home', 'HomeController@home');
+
 Route::get('/categories', 'CategoryController@category')->name('category');
 Route::get('/categories/create', 'CategoryController@create')->name('categoryCreate');
 Route::post('/categories/save', 'CategoryController@save')->name('categorySave');
@@ -46,3 +48,18 @@ Route::post('/users/save', 'UserController@save')->name('userSave');
 Route::get('/users/update/{user}', 'UserController@update')->name('userUpdate');
 Route::post('/users/store/{user}', 'UserController@store')->name('userStore');
 Route::get('/users/delite/{user}', 'UserController@delite')->name('userDelite');
+
+
+
+
+Route::get('/sign_in','SignController@sign_in')->name('sign_in');
+Route::get('/sign_up','SignController@sign_up')->name('sign_up');
+
+//Route::get('/user_side.home','UserHomeController@home')->name('home');
+Route::get('/post/{id}','UserPostController@post')->name('userPost');
+Route::get('/posts','UserPostController@posts')->name('userPosts');
+
+Route::get('/sign_in','Auth\LoginController@sign_in')->name('sign_in');
+Route::get('/sign_up','Auth\RegisterController@sign_up')->name('sign_up');
+
+Auth::routes();

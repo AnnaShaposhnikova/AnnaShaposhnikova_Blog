@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoriesTable extends Migration
+class UpdateTablePostTgAddPrimaryKey extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('category')->unique();
-            $table->timestamps();
-            $table->softDeletes();
+        Schema::table('post_tag', function (Blueprint $table) {
+            $table->primary(['post_id','tag_id']);
         });
     }
 
@@ -28,6 +25,6 @@ class CreateCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categoties');
+        //
     }
 }
