@@ -23,7 +23,7 @@
         <tr>
         <td>{{$comment->id}}</td>
             <td>{{$comment->user->firstName.' '.$comment->user->lastName}}</td>
-            <td>{{$comment->post->title}}</td>
+
             <td>{{$comment->text}}</td>
         <td>{{$comment->created_at}}</td>
         <td>{{$comment->updated_at}}</td>

@@ -8,7 +8,7 @@
 
 
         {{--<h5><i class="{{$tag['class']}}"></i><button type="button" class="btn btn-light">{{$tag['name']}}</button></h5>--}}
-        <h5><i class="{{$tag['class']}}"></i><a href = "{{route('userPosts')}}">
+        <h5><i class="{{$tag['class']}}"></i><a href = "{{route('userPosts',['tag'=>$tag->id])}}">
                 <button type="button" class="btn btn-light">  {{$tag['name']}}</button></a></h5>
 
     @endforeach

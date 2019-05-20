@@ -57,9 +57,15 @@ Route::get('/sign_up','SignController@sign_up')->name('sign_up');
 
 //Route::get('/user_side.home','UserHomeController@home')->name('home');
 Route::get('/post/{id}','UserPostController@post')->name('userPost');
-Route::get('/posts','UserPostController@posts')->name('userPosts');
+Route::get('/uposts','UserPostController@posts')->name('userPosts');
+Route::get('uposts/commentCreate','UserCommentController@create')->name('userCommentCreate');
+
+Route::post('uposts/commentSave','UserCommentController@save')->name('userCommentSave');
+Route::get('uposts/impressionSave/{postId}','UserImpressionController@save')->name('userImpressionSave');
 
 Route::get('/sign_in','Auth\LoginController@sign_in')->name('sign_in');
 Route::get('/sign_up','Auth\RegisterController@sign_up')->name('sign_up');
+
+
 
 Auth::routes();

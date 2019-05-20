@@ -27,7 +27,7 @@
     @foreach($posts as $post)
         <div class="card mt-3 mb-3" style="width: auto;" >
             <h1 class="card-header">{{$post->title}}</h1>
-            <h4 class="card-header">{{$post->title}}at{{$post->created_at->diffForHumans()}}</h4>
+            <h4 class="card-header">{{$post->title}}at{{$post->created_at}}</h4>
             <h5 class="card-header">Author:{{$post->user->firstName.' '.$post->user->lastName}}</h5>
             <div class="card-body">
                 <div class="card-subtitle">

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Post extends Model
+
 {
     public function category()
     {
@@ -17,12 +18,13 @@ class Post extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function comment()
+
+    public function comments()
     {
         return $this->hasMany('App\Comment');
 
     }
-    public function impression()
+    public function impressions()
     {
        return $this->hasMany('App\Impression');
     }
