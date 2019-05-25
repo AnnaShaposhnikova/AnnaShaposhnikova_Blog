@@ -42,21 +42,30 @@ class UserPostController extends Controller
 
 
 
-        return view('user_side.posts',['posts'=>$posts]);
+        return view('user_side.posts',
+            ['posts'=>$posts,
+
+            ]);
     }
+
     public function post ($id){
 
         $post = Post::find($id);
         $comments = Post::find($id)->comments;
         $sumComment=$post->comments()->count();
         $sumImpression=$post->impressions()->count();
+        $impression=$post->findImpression(\Auth::user()->id);
+
 
         return view('user_side.post', [
             'post'=>$post,
             'comments'=>$comments,
             'sumComment'=>$sumComment,
             'sumImpression'=> $sumImpression,
+            'impression' => $impression,
         ]);
+
+
     }
 
 

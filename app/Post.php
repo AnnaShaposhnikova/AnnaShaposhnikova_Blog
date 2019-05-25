@@ -32,5 +32,12 @@ class Post extends Model
     {
         return $this->belongsToMany('App\Tag', 'post_tag');
     }
+    public function findImpression($userId){
+        $impression = Impression::query()
+                ->where('user_id','=', $userId)
+                ->where('post_id','=',$this->id)
+                ->first();
+        return  $impression;
+    }
 
 }
