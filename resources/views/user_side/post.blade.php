@@ -49,8 +49,14 @@
 
             <span class="float-right">
                         <i class="fas fa-comment"></i> <span class="badge badge-secondary">{{$sumComment}}</span>
-
+@if(\App\Post::query()->select())
                         <a href="{{route('userImpressionSave',['id'=>$post->id])}}"  class="fas fa-heart" ></a> <span class="badge badge-secondary">{{$sumImpression}}</span>
+     @else()
+                    <a href=""  class="fas fa-heart" ></a> <span class="badge badge-secondary">{{$sumImpression}}</span>
+                @foreach ($errors->all() as $error)
+                    <div>{{ $error }}</div>
+                @endforeach
+    @endif
                     </span>
         </div>
     </div>
